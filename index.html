@@ -57,20 +57,17 @@
       background-color: #c8e6c9;
       font-style: italic;
     }
-    audio {
-      display: none;
-    }
+    audio { display: none; }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease-out forwards;
     }
     @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: none;
-      }
+      to { opacity: 1; transform: none; }
     }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -78,6 +75,7 @@
     .float {
       animation: float 3s ease-in-out infinite;
     }
+
     .couple {
       margin: 40px 0;
     }
@@ -103,7 +101,6 @@
       margin: 0 10px;
     }
 
-    /* Intro Screen */
     .intro-screen {
       position: fixed;
       top: 0; left: 0;
@@ -117,6 +114,7 @@
       z-index: 9999;
       text-align: center;
       padding: 20px;
+      overflow: hidden;
     }
     .intro-screen h1 {
       font-family: 'Great Vibes', cursive;
@@ -141,18 +139,40 @@
     .intro-screen button:hover {
       background-color: #f1f8e9;
     }
-    .fade-out {
-      animation: fadeOut 1s forwards;
-    }
+
+    .fade-out { animation: fadeOut 1s forwards; }
     @keyframes fadeOut {
       from { opacity: 1; }
       to { opacity: 0; }
     }
+
+    /* Bunga */
+    .flower {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png');
+      background-size: cover;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Layar Intro -->
   <div class="intro-screen" id="intro">
-    <h1>Wakhid & Nida</h1>
+    <div id="flowers"></div>
+    <h1>Muwakhid & Nida</h1>
     <p>Jumat, 15 Agustus 2025</p>
     <button onclick="bukaUndangan()">Buka Undangan</button>
   </div>
@@ -162,7 +182,7 @@
   </audio>
 
   <header class="fade-in">
-    <img src="https://raw.githubusercontent.com/rekcless/weddingwn/refs/heads/main/images%20(1).jpeg" alt="Mempelai" class="float" />
+    <img src="https://i.imgur.com/H3zLjzI.png" alt="Mempelai" class="float" />
     <h1 id="typing-text"></h1>
     <h2>Muwakhid & Nida</h2>
   </header>
@@ -177,7 +197,7 @@
     <p><strong>Jumat, 15 Agustus 2025</strong></p>
     <p><strong>Pukul 13.00 WIB - selesai</strong></p>
     <p>Bertempat di kediaman kami</p>
-    <a class="btn-rsvp" href="https://wa.me/6281914477668" target="_blank">Konfirmasi via WhatsApp</a>
+    <a class="btn-rsvp" href="https://wa.me/628xxxxxxxxxx" target="_blank">Konfirmasi via WhatsApp</a>
   </div>
 
   <div class="section fade-in">
@@ -229,7 +249,6 @@
     const x = setInterval(function() {
       const now = new Date().getTime();
       const distance = countDownDate - now;
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -243,6 +262,17 @@
         document.getElementById("countdown").innerHTML = "Acara telah dimulai!";
       }
     }, 1000);
+
+    // Bunga jatuh
+    const flowerContainer = document.getElementById("flowers");
+    for (let i = 0; i < 20; i++) {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      flower.style.animationDelay = (Math.random() * 5) + "s";
+      flowerContainer.appendChild(flower);
+    }
   </script>
 </body>
 </html>
