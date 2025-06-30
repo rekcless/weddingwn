@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Muwakhid & Nida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e9f5e9;
+      color: #2e4e2e;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(#4caf50, #81c784);
+      color: white;
+      padding: 30px 20px;
+      font-family: 'Great Vibes', cursive;
+    }
+    header img {
+      max-width: 200px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    .section {
+      padding: 40px 20px;
+    }
+    .countdown {
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .btn-rsvp {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-rsvp:hover {
+      background-color: #66bb6a;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
+    .footer {
+      padding: 30px 20px;
+      background-color: #c8e6c9;
+      font-style: italic;
+    }
+    audio {
+      display: none;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  </audio>
+  <header class="fade-in">
+    <img src="https://i.imgur.com/H3zLjzI.png" alt="Mempelai" class="float">
+    <h1 id="typing-text"></h1>
+    <h2>Muwakhid & Nida</h2>
+  </header>
+  <div class="section fade-in">
+    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan kami:</p>
+    <h3>Muwakhid Nur Imamah</h3>
+    <p>dan</p>
+    <h3>Afifah Nida Umi Fathiyah</h3>
+    <p><strong>Jumat, 15 Agustus 2025</strong></p>
+    <p><strong>Pukul 13.00 WIB - selesai</strong></p>
+    <p>Bertempat di kediaman kami</p>
+    <a class="btn-rsvp" href="https://wa.me/628xxxxxxxxxx" target="_blank">Konfirmasi via WhatsApp</a>
+  </div>
+  <div class="section fade-in">
+    <h2>Hitung Mundur</h2>
+    <div class="countdown fade-in" id="countdown"></div>
+  </div>
+  <div class="footer fade-in">
+    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+    <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+  </div>
+
+  <script>
+    // Efek Typing
+    const text = "Pernikahan";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+    typeWriter();
+
+    // Fade-in audio
+    const audio = document.querySelector('audio');
+    audio.volume = 0;
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.05;
+        audio.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 300);
+
+    // Countdown Timer
+    const countDownDate = new Date("2025-08-15T06:00:00Z").getTime();
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + "h " + hours + "j " + minutes + "m " + seconds + "d ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Acara telah dimulai!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
