@@ -58,17 +58,16 @@
     }
     audio { display: none; }
 
-    .fade-in {
+    .delayed-fade {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1s ease-out forwards;
     }
     @keyframes fadeInUp {
-      to { opacity: 1; transform: none; }
-    }
-
-    .couple {
-      margin: 40px 0;
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
     .couple h3 {
       font-family: 'Parisienne', cursive;
@@ -91,131 +90,54 @@
       vertical-align: middle;
       margin: 0 10px;
     }
-
-    .intro-screen {
-      background: url('https://images.unsplash.com/photo-1607083206173-0d68a3f7c37c') center center/cover no-repeat;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      text-align: center;
-      padding: 20px;
-      backdrop-filter: brightness(0.8);
-    }
-    .intro-screen h1 {
-      font-family: 'Parisienne', cursive;
-      font-size: 3em;
-      margin: 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    .intro-screen p {
-      margin: 10px 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    .intro-screen button {
-      margin-top: 20px;
-      padding: 12px 30px;
-      font-size: 1em;
-      border: none;
-      background-color: #ffffff;
-      color: #388e3c;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .intro-screen button:hover {
-      background-color: #f1f8e9;
-    }
-
-    .fade-out { animation: fadeOut 1s forwards; }
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
   </style>
 </head>
 <body>
-  <!-- Halaman Pembuka -->
-  <div class="intro-screen" id="intro">
-    <h1>Muwakhid & Nida</h1>
-    <p>Jumat, 15 Agustus 2025</p>
-    <button onclick="bukaUndangan()">Buka Undangan</button>
-  </div>
-
   <audio id="music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3" />
   </audio>
 
-  <header class="fade-in">
-    <h3>ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللّٰهِ وَبَرَكَاتُهُ</h3>
-    <h1 id="typing-text"></h1>
-    <h2>Muwakhid & Nida</h2>
+  <header>
+    <h3 class="delayed-fade" style="animation-delay: 0s;">Assalamualaikum Warahmatullahi Wabarakatuh</h3>
+    
+    <h1 class="delayed-fade" style="animation-delay: 2.4s;">Pernikahan</h1>
+    <h2 class="delayed-fade" style="animation-delay: 3.2s;">Muwakhid & Nida</h2>
   </header>
 
-  <div class="section fade-in">
-    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan kami:</p>
-    <div class="couple fade-in">
-      <h3>Muwakhid Nur Imamah</h3>
-      <div class="and">dan</div>
-      <h3>Afifah Nida Umi Fathiyah</h3>
+  <div class="section">
+    <p class="delayed-fade" style="animation-delay: 4s;">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan kami:</p>
+    <div class="couple">
+      <h3 class="delayed-fade" style="animation-delay: 4.8s;">Muwakhid Nur Imamah</h3>
+      <div class="and delayed-fade" style="animation-delay: 5.2s;">dan</div>
+      <h3 class="delayed-fade" style="animation-delay: 5.6s;">Afifah Nida Umi Fathiyah</h3>
     </div>
-    <p><strong>Jumat, 15 Agustus 2025</strong></p>
-    <p><strong>Pukul 13.00 WIB - selesai</strong></p>
-    <p>Bertempat di kediaman kami</p>
-    <a class="btn-rsvp" href="https://wa.me/628xxxxxxxxxx" target="_blank">Konfirmasi via WhatsApp</a>
+    <p class="delayed-fade" style="animation-delay: 6.2s;">Jumat, 15 Agustus 2025</p>
+    <p class="delayed-fade" style="animation-delay: 6.6s;">Pukul 13.00 WIB - selesai</p>
+    <p class="delayed-fade" style="animation-delay: 7s;">Bertempat di kediaman kami</p>
+    <a class="btn-rsvp delayed-fade" style="animation-delay: 7.5s;" href="https://wa.me/628xxxxxxxxxx" target="_blank">Konfirmasi via WhatsApp</a>
   </div>
 
-  <div class="section fade-in">
-    <h2>Hitung Mundur</h2>
-    <div class="countdown fade-in" id="countdown"></div>
+  <div class="section">
+    <h2 class="delayed-fade" style="animation-delay: 8.2s;">Hitung Mundur</h2>
+    <div class="countdown delayed-fade" style="animation-delay: 9s;" id="countdown"></div>
   </div>
 
-  <div class="footer fade-in">
-    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
-    <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+  <div class="footer">
+    <p class="delayed-fade" style="animation-delay: 9.8s;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+    <p class="delayed-fade" style="animation-delay: 10.2s;">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
   </div>
 
   <script>
-    function bukaUndangan() {
-      const intro = document.getElementById("intro");
-      intro.classList.add("fade-out");
-      setTimeout(() => {
-        intro.style.display = "none";
-      }, 1000);
-
+    window.onload = function() {
       const audio = document.getElementById("music");
-      audio.volume = 0;
-      audio.play();
-      let vol = 0;
-      const fade = setInterval(() => {
-        if (vol < 1) {
-          vol += 0.05;
-          audio.volume = vol;
-        } else {
-          clearInterval(fade);
-        }
-      }, 300);
-    }
-
-    // Efek mengetik
-    const text = "Pernikahan";
-    let i = 0;
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typing-text").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 150);
+      if (audio) {
+        audio.volume = 0.6;
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, bisa putar manual");
+        });
       }
-    }
-    typeWriter();
+    };
 
-    // Countdown
     const countDownDate = new Date("2025-08-15T06:00:00Z").getTime();
     const x = setInterval(function() {
       const now = new Date().getTime();
