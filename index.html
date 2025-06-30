@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wedding Muwakhid & Nida</title>
-  <!-- Font Elegan -->
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand&family=Amiri&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
@@ -18,11 +17,15 @@
       background: linear-gradient(#4caf50, #81c784);
       color: white;
       padding: 30px 20px;
-      font-family: 'Parisienne', cursive;
     }
-    h1 {
-      font-size: 2.5em;
-      margin: 0;
+    header h1, header h2 {
+      font-family: 'Parisienne', cursive;
+      margin: 5px 0;
+    }
+    header h3 {
+      font-family: 'Amiri', serif;
+      font-size: 1.4em;
+      margin: 0 0 10px;
     }
     .section {
       padding: 40px 20px;
@@ -90,7 +93,7 @@
     }
 
     .intro-screen {
-      background: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee') center center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1607083206173-0d68a3f7c37c') center center/cover no-repeat;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
@@ -102,7 +105,6 @@
       z-index: 9999;
       text-align: center;
       padding: 20px;
-      overflow: hidden;
       backdrop-filter: brightness(0.8);
     }
     .intro-screen h1 {
@@ -151,6 +153,7 @@
   </audio>
 
   <header class="fade-in">
+    <h3>ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللّٰهِ وَبَرَكَاتُهُ</h3>
     <h1 id="typing-text"></h1>
     <h2>Muwakhid & Nida</h2>
   </header>
@@ -212,7 +215,7 @@
     }
     typeWriter();
 
-    // Hitung Mundur
+    // Countdown
     const countDownDate = new Date("2025-08-15T06:00:00Z").getTime();
     const x = setInterval(function() {
       const now = new Date().getTime();
