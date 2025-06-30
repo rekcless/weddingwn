@@ -102,12 +102,56 @@
       vertical-align: middle;
       margin: 0 10px;
     }
+    .intro-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(#4caf50, #81c784);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+      padding: 20px;
+    }
+    .intro-screen h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin: 0;
+    }
+    .intro-screen p {
+      margin: 10px 0;
+    }
+    .intro-screen button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 1em;
+      border: none;
+      background-color: #ffffff;
+      color: #388e3c;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .intro-screen button:hover {
+      background-color: #f1f8e9;
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+  <div class="intro-screen" id="intro">
+    <h1>Muwakhid & Nida</h1>
+    <p>Jumat, 15 Agustus 2025</p>
+    <button onclick="bukaUndangan()">Buka Undangan</button>
+  </div>
+
+  <audio id="music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3" />
   </audio>
+
   <header class="fade-in">
     <img src="https://i.imgur.com/H3zLjzI.png" alt="Mempelai" class="float" />
     <h1 id="typing-text"></h1>
@@ -138,7 +182,24 @@
   </div>
 
   <script>
-    // Efek Typing
+    // Efek buka undangan
+    function bukaUndangan() {
+      document.getElementById("intro").style.display = "none";
+      const audio = document.getElementById("music");
+      audio.volume = 0;
+      audio.play();
+      let vol = 0;
+      const fade = setInterval(() => {
+        if (vol < 1) {
+          vol += 0.05;
+          audio.volume = vol;
+        } else {
+          clearInterval(fade);
+        }
+      }, 300);
+    }
+
+    // Efek typing
     const text = "Pernikahan";
     let i = 0;
     function typeWriter() {
@@ -149,19 +210,6 @@
       }
     }
     typeWriter();
-
-    // Fade-in audio
-    const audio = document.querySelector('audio');
-    audio.volume = 0;
-    let vol = 0;
-    const fade = setInterval(() => {
-      if (vol < 1) {
-        vol += 0.05;
-        audio.volume = vol;
-      } else {
-        clearInterval(fade);
-      }
-    }, 300);
 
     // Countdown Timer
     const countDownDate = new Date("2025-08-15T06:00:00Z").getTime();
