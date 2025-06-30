@@ -102,6 +102,8 @@
       vertical-align: middle;
       margin: 0 10px;
     }
+
+    /* Intro Screen */
     .intro-screen {
       position: fixed;
       top: 0; left: 0;
@@ -138,6 +140,13 @@
     }
     .intro-screen button:hover {
       background-color: #f1f8e9;
+    }
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
     }
   </style>
 </head>
@@ -182,9 +191,13 @@
   </div>
 
   <script>
-    // Efek buka undangan
     function bukaUndangan() {
-      document.getElementById("intro").style.display = "none";
+      const intro = document.getElementById("intro");
+      intro.classList.add("fade-out");
+      setTimeout(() => {
+        intro.style.display = "none";
+      }, 1000);
+
       const audio = document.getElementById("music");
       audio.volume = 0;
       audio.play();
