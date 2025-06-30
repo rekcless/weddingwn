@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wedding Muwakhid & Nida</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
@@ -78,31 +78,60 @@
     .float {
       animation: float 3s ease-in-out infinite;
     }
+    .couple {
+      margin: 40px 0;
+    }
+    .couple h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2em;
+      margin: 10px 0;
+    }
+    .couple .and {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      margin: 10px 0;
+      position: relative;
+    }
+    .couple .and::before,
+    .couple .and::after {
+      content: "";
+      height: 1px;
+      width: 40px;
+      background: #4caf50;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
   </style>
 </head>
 <body>
   <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3" />
   </audio>
   <header class="fade-in">
-    <img src="https://i.imgur.com/H3zLjzI.png" alt="Mempelai" class="float">
+    <img src="https://i.imgur.com/H3zLjzI.png" alt="Mempelai" class="float" />
     <h1 id="typing-text"></h1>
     <h2>Muwakhid & Nida</h2>
   </header>
+
   <div class="section fade-in">
     <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan kami:</p>
-    <h3>Muwakhid Nur Imamah</h3>
-    <p>dan</p>
-    <h3>Afifah Nida Umi Fathiyah</h3>
+    <div class="couple fade-in">
+      <h3>Muwakhid Nur Imamah</h3>
+      <div class="and">dan</div>
+      <h3>Afifah Nida Umi Fathiyah</h3>
+    </div>
     <p><strong>Jumat, 15 Agustus 2025</strong></p>
     <p><strong>Pukul 13.00 WIB - selesai</strong></p>
     <p>Bertempat di kediaman kami</p>
     <a class="btn-rsvp" href="https://wa.me/628xxxxxxxxxx" target="_blank">Konfirmasi via WhatsApp</a>
   </div>
+
   <div class="section fade-in">
     <h2>Hitung Mundur</h2>
     <div class="countdown fade-in" id="countdown"></div>
   </div>
+
   <div class="footer fade-in">
     <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
     <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
