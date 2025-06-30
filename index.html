@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wedding Muwakhid & Nida</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
+  <!-- Font Elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       background: #e9f5e9;
       color: #2e4e2e;
       text-align: center;
@@ -17,7 +18,7 @@
       background: linear-gradient(#4caf50, #81c784);
       color: white;
       padding: 30px 20px;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Parisienne', cursive;
     }
     h1 {
       font-size: 2.5em;
@@ -67,12 +68,12 @@
       margin: 40px 0;
     }
     .couple h3 {
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Parisienne', cursive;
       font-size: 2.2em;
       margin: 10px 0;
     }
     .couple .and {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       font-size: 1em;
       margin: 10px 0;
       position: relative;
@@ -89,7 +90,7 @@
     }
 
     .intro-screen {
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee') center center/cover no-repeat;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
@@ -102,14 +103,17 @@
       text-align: center;
       padding: 20px;
       overflow: hidden;
+      backdrop-filter: brightness(0.8);
     }
     .intro-screen h1 {
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Parisienne', cursive;
       font-size: 3em;
       margin: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
     .intro-screen p {
       margin: 10px 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
     .intro-screen button {
       margin-top: 20px;
@@ -132,33 +136,11 @@
       from { opacity: 1; }
       to { opacity: 0; }
     }
-
-    /* Bunga */
-    .flower {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/869/869869.png');
-      background-size: cover;
-      opacity: 0.7;
-      animation: fall linear infinite;
-    }
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
-  <!-- Layar Intro -->
+  <!-- Halaman Pembuka -->
   <div class="intro-screen" id="intro">
-    <div id="flowers"></div>
     <h1>Muwakhid & Nida</h1>
     <p>Jumat, 15 Agustus 2025</p>
     <button onclick="bukaUndangan()">Buka Undangan</button>
@@ -218,7 +200,7 @@
       }, 300);
     }
 
-    // Efek typing
+    // Efek mengetik
     const text = "Pernikahan";
     let i = 0;
     function typeWriter() {
@@ -230,7 +212,7 @@
     }
     typeWriter();
 
-    // Countdown Timer
+    // Hitung Mundur
     const countDownDate = new Date("2025-08-15T06:00:00Z").getTime();
     const x = setInterval(function() {
       const now = new Date().getTime();
@@ -248,17 +230,6 @@
         document.getElementById("countdown").innerHTML = "Acara telah dimulai!";
       }
     }, 1000);
-
-    // Efek bunga jatuh
-    const flowerContainer = document.getElementById("flowers");
-    for (let i = 0; i < 20; i++) {
-      const flower = document.createElement("div");
-      flower.className = "flower";
-      flower.style.left = Math.random() * 100 + "vw";
-      flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
-      flower.style.animationDelay = (Math.random() * 5) + "s";
-      flowerContainer.appendChild(flower);
-    }
   </script>
 </body>
 </html>
