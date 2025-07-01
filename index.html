@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan - Muwakhid & Afifah</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
@@ -17,6 +18,7 @@
             color: #333;
             line-height: 1.6;
             text-align: center;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
         }
         .container {
             max-width: 800px;
@@ -93,17 +95,36 @@
             margin-top: 5px;
             margin-bottom: 5px;
         }
+
+        /* CSS untuk Efek Fade-in */
+        .fade-in-element {
+            opacity: 0; /* Awalnya tersembunyi */
+            transform: translateY(20px); /* Sedikit bergeser ke bawah */
+            transition: opacity 1s ease-out, transform 1s ease-out; /* Transisi untuk opacity dan transform */
+        }
+        .fade-in-element.is-visible {
+            opacity: 1; /* Saat terlihat, opacity jadi 1 */
+            transform: translateY(0); /* Kembali ke posisi semula */
+        }
+        /* Style khusus untuk hero section agar langsung terlihat */
+        .hero.fade-in-element {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
 
-    <audio id="background-music" loop>
-        <source src="path/to/your/music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    
+<audio id="background-music" loop>
+        <source src="path/to/your/music.mp3" type="audio/mpeg"> 
+Your browser does not support the audio element.
     </audio>
 
     <div class="container">
 
-        <section class="hero">
+        
+<section class="hero fade-in-element">
             <img src="https://via.placeholder.com/600x400?text=Muwakhid+%26+Afifah" alt="Foto Pre-Wedding Muwakhid & Afifah">
             <h1>The Wedding Of</h1>
             <h2>Muwakhid Nur Imamah & Afifah Nida Umi Fathiyah</h2>
@@ -111,7 +132,8 @@
             <a href="#" id="open-invitation-btn" class="btn">Buka Undangan</a>
         </section>
 
-        <section class="section mempelai-keluarga">
+        
+<section class="section mempelai-keluarga fade-in-element">
             <h2>Mempelai & Keluarga</h2>
             <p>Putra dari Bapak [Nama Ayah Muwakhid] & Ibu [Nama Ibu Muwakhid]</p>
             <h3>Muwakhid Nur Imamah</h3>
@@ -122,7 +144,8 @@
             </p>
         </section>
 
-        <section class="section">
+        
+<section class="section fade-in-element">
             <h2>Resepsi Pernikahan</h2>
 
             <h3>Resepsi Bahagia</h3>
@@ -134,32 +157,38 @@
             <p style="font-size: 0.9em; color: #777;">*Mohon sesuaikan link Google Maps dan alamat lengkap Anda*</p>
 
             <div class="map-container">
-                Peta Interaktif Lokasi Pernikahan (Embed Google Maps di sini)
+                
+Peta Interaktif Lokasi Pernikahan (Embed Google Maps di sini)
             </div>
         </section>
 
-        <section class="section">
+        
+<section class="section fade-in-element">
             <h2>Momen Indah Kami</h2>
             <div class="video-container" style="margin-top: 20px;">
-                <div style="background-color: #eee; height: 250px; display: flex; align-items: center; justify-content: center; color: #777;">
+                
+<div style="background-color: #eee; height: 250px; display: flex; align-items: center; justify-content: center; color: #777;">
                     Video Pre-wedding (Embed YouTube/Vimeo di sini)
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        
+<section class="section fade-in-element">
             <h2>Hadiah & Doa Restu</h2>
             <p>Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan hadiah, dapat melalui:</p>
             <div class="account-info">
                 <p><strong>Bank:</strong> BCA</p>
                 <p><strong>Nomor Rekening:</strong> 1234567890</p>
                 <p><strong>Atas Nama:</strong> Muwakhid Nur Imamah</p>
-                </div>
+                
+</div>
             <p style="margin-top: 20px;">Doa restu dari Anda adalah hadiah paling berharga bagi kami.</p>
             <p style="font-size: 0.9em; color: #777;">*Mohon maaf, kami tidak menerima karangan bunga.*</p>
         </section>
 
-        <section class="section">
+        
+<section class="section fade-in-element">
             <h2>Hitung Mundur</h2>
             <div id="countdown" class="countdown"></div>
             <p>Kehadiran dan doa restu Anda adalah kebahagiaan tak ternilai bagi kami. Terima kasih banyak!</p>
@@ -168,8 +197,10 @@
 
             <div style="margin-top: 30px;">
                 <p>Bagikan Undangan Ini:</p>
-                <a href="whatsapp://send?text=Yuk%20datang%20ke%20pernikahan%20Muwakhid%20%26%20Afifah%20pada%2015%20Agustus%202025%20di%20kediaman%20mereka.%20Lihat%20detailnya%20di%20sini%3A%20[URL_UNDANGAN_ANDA]" class="btn" target="_blank" style="background-color: #25D366;">Share via WhatsApp</a>
-                </div>
+                
+<a href="whatsapp://send?text=Yuk%20datang%20ke%20pernikahan%20Muwakhid%20%26%20Afifah%20pada%2015%20Agustus%202025%20di%20kediaman%20mereka.%20Lihat%20detailnya%20di%20sini%3A%20[URL_UNDANGAN_ANDA]" class="btn" target="_blank" style="background-color: #25D366;">Share via WhatsApp</a>
+                
+</div>
         </section>
 
     </div>
@@ -178,15 +209,33 @@
         // JavaScript untuk Fungsionalitas Interaktif
         const music = document.getElementById('background-music');
         const openBtn = document.getElementById('open-invitation-btn');
+        const sections = document.querySelectorAll('.section.fade-in-element'); // Ambil semua section yang akan di-fade-in
 
-        // Play music when "Buka Undangan" button is clicked
+        // Fungsi untuk menampilkan elemen secara berurutan
+        function revealSections() {
+            let delay = 0;
+            sections.forEach((section, index) => {
+                // Lewati hero section karena sudah langsung terlihat
+                if (!section.classList.contains('hero')) {
+                    setTimeout(() => {
+                        section.classList.add('is-visible');
+                    }, delay);
+                    delay += 500; // Tambah delay 0.5 detik untuk setiap section
+                }
+            });
+        }
+
+        // Play music and start reveal animation when "Buka Undangan" button is clicked
         if (openBtn) {
             openBtn.addEventListener('click', function(event) {
                 event.preventDefault(); // Mencegah scroll ke atas
                 if (music) {
                     music.play().catch(e => console.log("Music play failed:", e));
                 }
-                // Anda bisa menyembunyikan hero section atau menambahkan animasi untuk reveal konten utama
+                // Mulai animasi reveal setelah tombol diklik
+                revealSections();
+                // Opsional: Sembunyikan tombol "Buka Undangan" setelah diklik
+                openBtn.style.display = 'none';
             });
         }
 
@@ -214,9 +263,6 @@
 
         const countdownInterval = setInterval(updateCountdown, 1000);
         updateCountdown(); // Panggil sekali untuk menghindari jeda awal
-
-        // Catatan: Form RSVP dan bagian ucapan tamu sudah dihapus sesuai permintaan.
-        // Jika Anda ingin menambahkannya kembali, Anda perlu menambahkan kode HTML dan JavaScript-nya.
 
     </script>
 </body>
