@@ -1,163 +1,291 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wedding Muwakhid & Nida</title>
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Quicksand&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: #e9f5e9;
-      color: #2e4e2e;
-      text-align: center;
-    }
-    header {
-      background: linear-gradient(#4caf50, #81c784);
-      color: white;
-      padding: 30px 20px;
-    }
-    header h1, header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      margin: 5px 0;
-      font-size: 2.5em;
-    }
-    header h3 {
-      font-family: 'Amiri', serif;
-      font-size: 1.4em;
-      margin: 0 0 10px;
-    }
-    .section {
-      padding: 40px 20px;
-    }
-    .countdown {
-      font-size: 2em;
-      font-weight: bold;
-    }
-    .btn-rsvp {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #4caf50;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .btn-rsvp:hover {
-      background-color: #66bb6a;
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-    }
-    .footer {
-      padding: 30px 20px;
-      background-color: #c8e6c9;
-      font-style: italic;
-    }
-    audio { display: none; }
-
-    .delayed-fade {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    .couple h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2em;
-      margin: 10px 0;
-    }
-    .couple .and {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 1em;
-      margin: 10px 0;
-      position: relative;
-    }
-    .couple .and::before,
-    .couple .and::after {
-      content: "";
-      height: 1px;
-      width: 40px;
-      background: #4caf50;
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Muwakhid & Afifah</title>
+    <style>
+        /* CSS Dasar untuk Demo - Nanti Bisa Dipindahkan ke style.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 {
+            color: #663300; /* Warna Coklat Gelap */
+        }
+        .hero {
+            padding: 50px 0;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #eee;
+        }
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #8B4513; /* SaddleBrown */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            background-color: #eee; /* Placeholder for map */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        form {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block; /* Untuk menengahkan form */
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form textarea,
+        form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #28a745; /* Hijau */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .account-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px dashed #ddd;
+            margin-top: 20px;
+        }
+        .countdown {
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #8B4513;
+        }
+    </style>
 </head>
 <body>
-  <audio id="music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3" />
-  </audio>
 
-  <header>
-    <h3 class="delayed-fade" style="animation-delay: 0s;">ٱلسَّلَامُ عَلَيْكُمْ</h3>
-    <h3 class="delayed-fade" style="animation-delay: 0.8s;">وَرَحْمَةُ ٱللّٰهِ</h3>
-    <h3 class="delayed-fade" style="animation-delay: 1.6s;">وَبَرَكَاتُهُ</h3>
-    <h1 class="delayed-fade" style="animation-delay: 2.4s;">Pernikahan</h1>
-    <h2 class="delayed-fade" style="animation-delay: 3.2s;">Muwakhid & Nida</h2>
-  </header>
+    <audio id="background-music" loop>
+        <source src="path/to/your/music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
 
-  <div class="section">
-    <p class="delayed-fade" style="animation-delay: 4s;">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara resepsi pernikahan kami:</p>
-    <div class="couple">
-      <h3 class="delayed-fade" style="animation-delay: 4.8s;">Muwakhid Nur Imamah</h3>
-      <div class="and delayed-fade" style="animation-delay: 5.2s;">dan</div>
-      <h3 class="delayed-fade" style="animation-delay: 5.6s;">Afifah Nida Umi Fathiyah</h3>
+    <div class="container">
+
+        <section class="hero">
+            <img src="https://via.placeholder.com/600x400?text=Muwakhid+%26+Afifah" alt="Foto Pre-Wedding Muwakhid & Afifah">
+            <h1>The Wedding Of</h1>
+            <h2>Muwakhid Nur Imamah & Afifah Nida Umi Fathiyah</h2>
+            <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menjadi saksi dan memberikan doa restu pada hari bahagia pernikahan putra-putri kami.</p>
+            <a href="#" id="open-invitation-btn" class="btn">Buka Undangan</a>
+        </section>
+
+        <section class="section">
+            <h2>Mempelai & Keluarga</h2>
+            <p>Putra dari Bapak [Nama Ayah Muwakhid] & Ibu [Nama Ibu Muwakhid]</p>
+            <h3>Muwakhid Nur Imamah</h3>
+            <p>Putri dari Bapak [Nama Ayah Afifah] & Ibu [Nama Ibu Afifah]</p>
+            <h3>Afifah Nida Umi Fathiyah</h3>
+            <p>
+                "Dari hati yang tulus, kami berharap kehadiran dan doa restu Anda semua akan menyempurnakan kebahagiaan kami."
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Resepsi Pernikahan</h2>
+
+            <h3>Resepsi Bahagia</h3>
+            <p><strong>Hari, Tanggal:</strong> Jumat, 15 Agustus 2025</p>
+            <p><strong>Waktu:</strong> Pukul 10.00 - Selesai WIB</p>
+            <p><strong>Lokasi:</strong> Kediaman Kami</p>
+            <p>Jl. Contoh Indah No. 123, Kel. Bahagia, Kec. Selalu Ada, Kota Istimewa, Indonesia</p>
+            <a href="https://maps.app.goo.gl/ContohLinkGoogleMapsAnda" target="_blank" class="btn">Lihat di Google Maps</a>
+            <p style="font-size: 0.9em; color: #777;">*Mohon sesuaikan link Google Maps dan alamat lengkap Anda*</p>
+
+            <div class="map-container">
+                Peta Interaktif Lokasi Pernikahan (Embed Google Maps di sini)
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Momen Indah Kami</h2>
+            <div class="video-container" style="margin-top: 20px;">
+                <div style="background-color: #eee; height: 250px; display: flex; align-items: center; justify-content: center; color: #777;">
+                    Video Pre-wedding (Embed YouTube/Vimeo di sini)
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Konfirmasi Kehadiran & Kirim Doa</h2>
+            <form id="rsvp-form">
+                <label for="nama-tamu">Nama Anda:</label>
+                <input type="text" id="nama-tamu" name="nama_tamu" required>
+
+                <label for="jumlah-hadir">Jumlah Kehadiran:</label>
+                <select id="jumlah-hadir" name="jumlah_hadir" required>
+                    <option value="">Pilih</option>
+                    <option value="1">1 Orang</option>
+                    <option value="2">2 Orang</option>
+                    <option value="0">Tidak Hadir</option>
+                </select>
+
+                <label for="pesan-doa">Pesan / Doa untuk Mempelai:</label>
+                <textarea id="pesan-doa" name="pesan_doa" rows="5"></textarea>
+
+                <button type="submit">Kirim Konfirmasi</button>
+            </form>
+            <div id="ucapan-tamu" style="margin-top: 30px; text-align: left;">
+                <h3>Ucapan & Doa dari Tamu:</h3>
+                <p>Belum ada ucapan...</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Hadiah & Doa Restu</h2>
+            <p>Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan hadiah, dapat melalui:</p>
+            <div class="account-info">
+                <p><strong>Bank:</strong> BCA</p>
+                <p><strong>Nomor Rekening:</strong> 1234567890</p>
+                <p><strong>Atas Nama:</strong> Muwakhid Nur Imamah</p>
+                </div>
+            <p style="margin-top: 20px;">Doa restu dari Anda adalah hadiah paling berharga bagi kami.</p>
+            <p style="font-size: 0.9em; color: #777;">*Mohon maaf, kami tidak menerima karangan bunga.*</p>
+        </section>
+
+        <section class="section">
+            <h2>Protokol Kesehatan</h2>
+            <p>Demi kenyamanan dan kesehatan kita bersama, mohon untuk mematuhi protokol berikut:</p>
+            <ul>
+                <li>Wajib menggunakan masker selama acara.</li>
+                <li>Menjaga jarak aman antar tamu.</li>
+                <li>Gunakan *hand sanitizer* yang tersedia.</li>
+                <li>Mohon hindari bersalaman secara langsung.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Hitung Mundur</h2>
+            <div id="countdown" class="countdown"></div>
+            <p>Kehadiran dan doa restu Anda adalah kebahagiaan tak ternilai bagi kami. Terima kasih banyak!</p>
+            <p style="margin-top: 30px;">Hormat Kami,</p>
+            <h2>Muwakhid & Afifah</h2>
+
+            <div style="margin-top: 30px;">
+                <p>Bagikan Undangan Ini:</p>
+                <a href="whatsapp://send?text=Yuk%20datang%20ke%20pernikahan%20Muwakhid%20%26%20Afifah%20pada%2015%20Agustus%202025%20di%20kediaman%20mereka.%20Lihat%20detailnya%20di%20sini%3A%20[URL_UNDANGAN_ANDA]" class="btn" target="_blank" style="background-color: #25D366;">Share via WhatsApp</a>
+                </div>
+        </section>
+
     </div>
-    <p class="delayed-fade" style="animation-delay: 6.2s;">Jumat, 15 Agustus 2025</p>
-    <p class="delayed-fade" style="animation-delay: 6.6s;">Pukul 13.00 WIB - selesai</p>
-    <p class="delayed-fade" style="animation-delay: 7s;">Bertempat di kediaman kami</p>
-    <a class="btn-rsvp delayed-fade" style="animation-delay: 7.5s;" href="https://wa.me/628xxxxxxxxxx" target="_blank">Konfirmasi via WhatsApp</a>
-  </div>
 
-  <div class="section">
-    <h2 class="delayed-fade" style="animation-delay: 8.2s;">Hitung Mundur</h2>
-    <div class="countdown delayed-fade" style="animation-delay: 9s;" id="countdown"></div>
-  </div>
+    <script>
+        // JavaScript untuk Fungsionalitas Interaktif
+        const music = document.getElementById('background-music');
+        const openBtn = document.getElementById('open-invitation-btn');
 
-  <div class="footer">
-    <p class="delayed-fade" style="animation-delay: 9.8s;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
-    <p class="delayed-fade" style="animation-delay: 10.2s;">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
-  </div>
+        // Play music when "Buka Undangan" button is clicked
+        if (openBtn) {
+            openBtn.addEventListener('click', function(event) {
+                event.preventDefault(); // Mencegah scroll ke atas
+                if (music) {
+                    music.play().catch(e => console.log("Music play failed:", e));
+                }
+                // Anda bisa menyembunyikan hero section atau menambahkan animasi untuk reveal konten utama
+                // Contoh: document.querySelector('.hero').style.display = 'none';
+            });
+        }
 
-  <script>
-    window.onload = function() {
-      const audio = document.getElementById("music");
-      if (audio) {
-        audio.volume = 0.6;
-        audio.play().catch(() => {
-          console.log("Autoplay diblokir, bisa putar manual");
-        });
-      }
-    };
+        // Countdown Timer menuju 15 Agustus 2025, Pukul 10.00 WIB
+        const countdownElement = document.getElementById('countdown');
+        // Pastikan Anda mengubah tanggal di sini sesuai tanggal pernikahan Anda!
+        // Format: 'Month Day, Year HH:MM:SS GMT+ZonaWaktu'
+        const targetDate = new Date('August 15, 2025 10:00:00 GMT+0700').getTime(); // Sesuaikan zona waktu (GMT+0700 untuk WIB)
 
-    const countDownDate = new Date("2025-08-15T06:00:00Z").getTime();
-    const x = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = countDownDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
 
-      document.getElementById("countdown").innerHTML =
-        days + "h " + hours + "j " + minutes + "m " + seconds + "d ";
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "Acara telah dimulai!";
-      }
-    }, 1000);
-  </script>
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "Acara Sedang Berlangsung!";
+            } else {
+                countdownElement.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Panggil sekali untuk menghindari jeda awal
+
+        // Basic RSVP Form Handling (membutuhkan backend untuk menyimpan data)
+        const rsvpForm = document.getElementById('rsvp-form');
+        if (rsvpForm) {
+            rsvpForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Terima kasih! Konfirmasi kehadiran Anda telah diterima. (Fungsi ini membutuhkan backend)');
+                // Di sini Anda akan mengirim data form ke server menggunakan Fetch API atau XMLHttpRequest
+                // Contoh:
+                // const formData = new FormData(rsvpForm);
+                // fetch('/api/rsvp', {
+                //     method: 'POST',
+                //     body: formData
+                // })
+                // .then(response => response.json())
+                // .then(data => {
+                //     console.log('Success:', data);
+                //     // Tampilkan pesan sukses ke user
+                // })
+                // .catch((error) => {
+                //     console.error('Error:', error);
+                // });
+            });
+        }
+
+    </script>
 </body>
 </html>
