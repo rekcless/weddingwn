@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan - Muwakhid & Afifah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        /* CSS Dasar untuk Demo - Nanti Bisa Dipindahkan ke style.css */
+        /* CSS Dasar untuk Demo */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -23,8 +26,15 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 8px;
         }
-        h1, h2, h3 {
+        h1, h3 {
             color: #663300; /* Warna Coklat Gelap */
+        }
+        h2 {
+            color: #8B4513; /* Warna SaddleBrown */
+            font-family: 'Great Vibes', cursive; /* Font seni tinggi untuk nama mempelai */
+            font-size: 2.5em; /* Ukuran font agar lebih menonjol */
+            margin-top: 5px;
+            margin-bottom: 15px;
         }
         .hero {
             padding: 50px 0;
@@ -62,33 +72,6 @@
             justify-content: center;
             color: #777;
         }
-        form {
-            margin-top: 20px;
-            text-align: left;
-            display: inline-block; /* Untuk menengahkan form */
-        }
-        form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        form input[type="text"],
-        form textarea,
-        form select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        form button {
-            background-color: #28a745; /* Hijau */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
         .account-info {
             background-color: #f9f9f9;
             padding: 20px;
@@ -101,6 +84,14 @@
             font-weight: bold;
             margin-top: 20px;
             color: #8B4513;
+        }
+        /* Mengubah font untuk nama mempelai di bagian "Mempelai & Keluarga" */
+        .section.mempelai-keluarga h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em; /* Sedikit lebih kecil dari nama utama tapi tetap artistik */
+            color: #8B4513;
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -120,7 +111,7 @@
             <a href="#" id="open-invitation-btn" class="btn">Buka Undangan</a>
         </section>
 
-        <section class="section">
+        <section class="section mempelai-keluarga">
             <h2>Mempelai & Keluarga</h2>
             <p>Putra dari Bapak [Nama Ayah Muwakhid] & Ibu [Nama Ibu Muwakhid]</p>
             <h3>Muwakhid Nur Imamah</h3>
@@ -157,31 +148,6 @@
         </section>
 
         <section class="section">
-            <h2>Konfirmasi Kehadiran & Kirim Doa</h2>
-            <form id="rsvp-form">
-                <label for="nama-tamu">Nama Anda:</label>
-                <input type="text" id="nama-tamu" name="nama_tamu" required>
-
-                <label for="jumlah-hadir">Jumlah Kehadiran:</label>
-                <select id="jumlah-hadir" name="jumlah_hadir" required>
-                    <option value="">Pilih</option>
-                    <option value="1">1 Orang</option>
-                    <option value="2">2 Orang</option>
-                    <option value="0">Tidak Hadir</option>
-                </select>
-
-                <label for="pesan-doa">Pesan / Doa untuk Mempelai:</label>
-                <textarea id="pesan-doa" name="pesan_doa" rows="5"></textarea>
-
-                <button type="submit">Kirim Konfirmasi</button>
-            </form>
-            <div id="ucapan-tamu" style="margin-top: 30px; text-align: left;">
-                <h3>Ucapan & Doa dari Tamu:</h3>
-                <p>Belum ada ucapan...</p>
-            </div>
-        </section>
-
-        <section class="section">
             <h2>Hadiah & Doa Restu</h2>
             <p>Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan hadiah, dapat melalui:</p>
             <div class="account-info">
@@ -191,17 +157,6 @@
                 </div>
             <p style="margin-top: 20px;">Doa restu dari Anda adalah hadiah paling berharga bagi kami.</p>
             <p style="font-size: 0.9em; color: #777;">*Mohon maaf, kami tidak menerima karangan bunga.*</p>
-        </section>
-
-        <section class="section">
-            <h2>Protokol Kesehatan</h2>
-            <p>Demi kenyamanan dan kesehatan kita bersama, mohon untuk mematuhi protokol berikut:</p>
-            <ul>
-                <li>Wajib menggunakan masker selama acara.</li>
-                <li>Menjaga jarak aman antar tamu.</li>
-                <li>Gunakan *hand sanitizer* yang tersedia.</li>
-                <li>Mohon hindari bersalaman secara langsung.</li>
-            </ul>
         </section>
 
         <section class="section">
@@ -232,15 +187,13 @@
                     music.play().catch(e => console.log("Music play failed:", e));
                 }
                 // Anda bisa menyembunyikan hero section atau menambahkan animasi untuk reveal konten utama
-                // Contoh: document.querySelector('.hero').style.display = 'none';
             });
         }
 
         // Countdown Timer menuju 15 Agustus 2025, Pukul 10.00 WIB
         const countdownElement = document.getElementById('countdown');
-        // Pastikan Anda mengubah tanggal di sini sesuai tanggal pernikahan Anda!
-        // Format: 'Month Day, Year HH:MM:SS GMT+ZonaWaktu'
-        const targetDate = new Date('August 15, 2025 10:00:00 GMT+0700').getTime(); // Sesuaikan zona waktu (GMT+0700 untuk WIB)
+        // Tanggal target: 15 Agustus 2025, pukul 10:00:00 WIB (GMT+0700)
+        const targetDate = new Date('August 15, 2025 10:00:00 GMT+0700').getTime(); 
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -262,29 +215,8 @@
         const countdownInterval = setInterval(updateCountdown, 1000);
         updateCountdown(); // Panggil sekali untuk menghindari jeda awal
 
-        // Basic RSVP Form Handling (membutuhkan backend untuk menyimpan data)
-        const rsvpForm = document.getElementById('rsvp-form');
-        if (rsvpForm) {
-            rsvpForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                alert('Terima kasih! Konfirmasi kehadiran Anda telah diterima. (Fungsi ini membutuhkan backend)');
-                // Di sini Anda akan mengirim data form ke server menggunakan Fetch API atau XMLHttpRequest
-                // Contoh:
-                // const formData = new FormData(rsvpForm);
-                // fetch('/api/rsvp', {
-                //     method: 'POST',
-                //     body: formData
-                // })
-                // .then(response => response.json())
-                // .then(data => {
-                //     console.log('Success:', data);
-                //     // Tampilkan pesan sukses ke user
-                // })
-                // .catch((error) => {
-                //     console.error('Error:', error);
-                // });
-            });
-        }
+        // Catatan: Form RSVP dan bagian ucapan tamu sudah dihapus sesuai permintaan.
+        // Jika Anda ingin menambahkannya kembali, Anda perlu menambahkan kode HTML dan JavaScript-nya.
 
     </script>
 </body>
