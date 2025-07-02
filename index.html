@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan - Muwakhid & Afifah</title>
     
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -134,22 +134,29 @@
             box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Sedikit inner shadow */
         }
 
-        /* Account Info */
-        .account-info {
+        /* Quote Section (Pengganti Hadiah) */
+        .quote-section {
             background-color: #fffaf0; /* Warna sedikit krem */
-            padding: 25px;
+            padding: 30px 20px;
             border-radius: 10px;
-            border: 2px dashed #dcdcdc; /* Border dashed lebih jelas */
+            border: 2px solid #dcdcdc; /* Border solid */
             margin-top: 25px;
+            margin-bottom: 25px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            font-style: italic;
+            color: #555;
         }
-        .account-info p {
-            margin: 8px 0;
-            font-size: 1.1em;
-            font-weight: 500;
+        .quote-section p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin-bottom: 10px;
         }
-        .account-info strong {
+        .quote-section .source {
+            font-size: 0.9em;
+            font-weight: bold;
             color: var(--primary-color);
+            margin-top: 15px;
+            display: block;
         }
 
         /* Countdown */
@@ -232,15 +239,12 @@
         </section>
 
         <section class="section fade-in-element">
-            <h2>Hadiah & Doa Restu</h2>
-            <p>Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan hadiah, dapat melalui:</p>
-            <div class="account-info">
-                <p><strong>Bank:</strong> BCA</p>
-                <p><strong>Nomor Rekening:</strong> 1234567890</p>
-                <p><strong>Atas Nama:</strong> Muwakhid Nur Imamah</p>
+            <h2>Pesan Cinta</h2>
+            <div class="quote-section">
+                <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."</p>
+                <span class="source">QS. Ar-Rum: 21</span>
             </div>
-            <p style="margin-top: 20px;">Doa restu dari Anda adalah hadiah paling berharga bagi kami.</p>
-            <p style="font-size: 0.9em; color: #777;">*Mohon maaf, kami tidak menerima karangan bunga.*</p>
+            <p style="font-style: italic; color: #555; margin-top: 20px;">Doa restu Anda adalah anugerah terindah bagi kami.</p>
         </section>
 
         <section class="section fade-in-element">
@@ -261,7 +265,7 @@
     <script>
         const music = document.getElementById('background-music');
         const openBtn = document.getElementById('open-invitation-btn');
-        const sections = document.querySelectorAll('.section.fade-in-element:not(.hero)'); // Ambil semua section kecuali hero
+        const sections = document.querySelectorAll('.section.fade-in-element:not(.hero)'); 
 
         function revealSections() {
             let delay = 0;
@@ -269,7 +273,7 @@
                 setTimeout(() => {
                     section.classList.add('is-visible');
                 }, delay);
-                delay += 500; // Tambah delay 0.5 detik untuk setiap section
+                delay += 500; 
             });
         }
 
@@ -280,12 +284,11 @@
                     music.play().catch(e => console.log("Music play failed:", e));
                 }
                 revealSections();
-                openBtn.style.display = 'none'; // Sembunyikan tombol setelah diklik
+                openBtn.style.display = 'none'; 
             });
         }
 
         const countdownElement = document.getElementById('countdown');
-        // Tanggal target: 15 Agustus 2025, pukul 10:00:00 WIB (GMT+0700)
         const targetDate = new Date('August 15, 2025 10:00:00 GMT+0700').getTime(); 
 
         function updateCountdown() {
