@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan - Muwakhid & Afifah</title>
+    <title>Undangan Pernikahan - Wakhid & Nida</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,25 +189,26 @@
 <body>
 
     <audio id="background-music" loop>
-        <source src="path/to/your/music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+        <source src="https://github.com/rekcless/weddingwn/raw/refs/heads/main/Tiara%20Andini,%20Arsy%20Widianto%20-%20Lagu%20Pernikahan%20Kita%20(Official%20Music%20Video).mp3" type="audio/mpeg"> Your browser does not support the audio element.
     </audio>
 
     <div class="container">
 
         <section class="hero fade-in-element">
-            <img src="https://via.placeholder.com/600x400?text=Muwakhid+%26+Afifah" alt="Foto Pre-Wedding Muwakhid & Afifah">
+            <img src="https://raw.githubusercontent.com/rekcless/weddingwn/refs/heads/main/Screenshot_20250702_194219_Pinterest.jpg" alt="Foto Pre-Wedding Muwakhid & Afifah">
             <h1>The Wedding Of</h1>
-            <h2>Muwakhid Nur Imamah & Afifah Nida Umi Fathiyah</h2>
+            <h2>Wakhid & Nida</h2>
             <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menjadi saksi dan memberikan doa restu pada hari bahagia pernikahan putra-putri kami.</p>
             <a href="#" id="open-invitation-btn" class="btn">Buka Undangan</a>
         </section>
 
         <section class="section fade-in-element">
             <h2>Mempelai & Keluarga</h2>
-            <p>Putra dari Bapak [Nama Ayah Muwakhid] & Ibu [Nama Ibu Muwakhid]</p>
             <h3>Muwakhid Nur Imamah</h3>
-            <p>Putri dari Bapak [Nama Ayah Afifah] & Ibu [Nama Ibu Afifah]</p>
+            <p>Putra dari Bapak Supanto & Ibu Siti Marfuah</p>
+            
             <h3>Afifah Nida Umi Fathiyah</h3>
+            <p>Putri dari Bapak Marimo & Ibu Sri Suparsih</p>
             <p>
                 "Dari hati yang tulus, kami berharap kehadiran dan doa restu Anda semua akan menyempurnakan kebahagiaan kami."
             </p>
@@ -218,9 +219,9 @@
 
             <h3>Resepsi Bahagia</h3>
             <p><strong>Hari, Tanggal:</strong> Jumat, 15 Agustus 2025</p>
-            <p><strong>Waktu:</strong> Pukul 10.00 - Selesai WIB</p>
+            <p><strong>Waktu:</strong> Pukul 15.00 - Selesai WIB</p>
             <p><strong>Lokasi:</strong> Kediaman Kami</p>
-            <p>Jl. Contoh Indah No. 123, Kel. Bahagia, Kec. Selalu Ada, Kota Istimewa, Indonesia</p>
+            <p>Kauman Rt 02 / Rw 07 Karanganyar, Weru, Sukoharjo</p>
             <a href="https://maps.app.goo.gl/ContohLinkGoogleMapsAnda" target="_blank" class="btn">Lihat di Google Maps</a>
             <p style="font-size: 0.9em; color: #777;">*Mohon sesuaikan link Google Maps dan alamat lengkap Anda*</p>
 
@@ -252,7 +253,7 @@
             <div id="countdown" class="countdown"></div>
             <p>Kehadiran dan doa restu Anda adalah kebahagiaan tak ternilai bagi kami. Terima kasih banyak!</p>
             <p style="margin-top: 30px;">Hormat Kami,</p>
-            <h2>Muwakhid & Afifah</h2>
+            <h2>Muwakhid & Nida</h2>
 
             <div style="margin-top: 30px;">
                 <p>Bagikan Undangan Ini:</p>
@@ -265,30 +266,49 @@
     <script>
         const music = document.getElementById('background-music');
         const openBtn = document.getElementById('open-invitation-btn');
-        const sections = document.querySelectorAll('.section.fade-in-element:not(.hero)'); 
+        // Pilih semua elemen yang memiliki kelas 'fade-in-element' DAN BUKAN 'hero'
+        const sectionsToObserve = document.querySelectorAll('.fade-in-element:not(.hero)'); 
 
-        function revealSections() {
-            let delay = 0;
-            sections.forEach(section => {
-                setTimeout(() => {
-                    section.classList.add('is-visible');
-                }, delay);
-                delay += 500; 
+        // Callback untuk Intersection Observer
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Tambahkan kelas 'is-visible' jika elemen masuk viewport
+                    entry.target.classList.add('is-visible');
+                    // Hentikan observasi setelah elemen terlihat (agar animasi hanya sekali)
+                    observer.unobserve(entry.target);
+                }
             });
-        }
+        };
 
+        // Buat Intersection Observer
+        const observerOptions = {
+            root: null, // Menggunakan viewport sebagai root
+            rootMargin: '0px',
+            threshold: 0.2 // Elemen akan terlihat jika 20% dari elemen masuk viewport
+        };
+        const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Amati setiap section (kecuali hero)
+        sectionsToObserve.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Play music when "Buka Undangan" button is clicked
         if (openBtn) {
             openBtn.addEventListener('click', function(event) {
                 event.preventDefault();
                 if (music) {
                     music.play().catch(e => console.log("Music play failed:", e));
                 }
-                revealSections();
+                // Sembunyikan tombol setelah diklik
                 openBtn.style.display = 'none'; 
+                // Tidak perlu memanggil revealSections() di sini lagi karena sudah pakai Intersection Observer
             });
         }
 
         const countdownElement = document.getElementById('countdown');
+        // Tanggal target: 15 Agustus 2025, pukul 10:00:00 WIB (GMT+0700)
         const targetDate = new Date('August 15, 2025 10:00:00 GMT+0700').getTime(); 
 
         function updateCountdown() {
