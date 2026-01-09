@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catatan Keuangan</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ================= AUTH ================= -->
+  <main class="card auth-card" id="authPage">
+    <h1>Catatan Keuangan</h1>
+
+    <section class="col">
+      <form id="loginForm" class="form">
+        <h3>Login</h3>
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit" class="btn primary">Masuk</button>
+      </form>
+
+      <form id="registerForm" class="form">
+        <h3>Daftar</h3>
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password (min 6)" required />
+        <button type="submit" class="btn outline">Buat Akun</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ================= DASHBOARD ================= -->
+  <div id="dashboard" class="app hidden">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="brand">
+        <h2>Catatan Keuangan</h2>
+        <p class="sub">Saldo Bulan Terpilih</p>
+        <h3 id="saldoTotal">Rp 0</h3>
+      </div>
+
+      <div class="top-actions">
+        <select id="monthFilter"></select>
+        <button id="logoutBtn" class="btn outline">Logout</button>
+      </div>
+    </header>
+
+    <!-- GRID -->
+    <section class="grid container">
+
+      <!-- STAT -->
+      <div class="card stat">
+        <small>Total Hari Ini</small>
+        <h3 id="totalHarian">Rp 0</h3>
+      </div>
+
+      <div class="card stat">
+        <small>Saldo Bulan Terpilih</small>
+        <h3 id="totalBulanan">Rp 0</h3>
+      </div>
+
+      <!-- REKAP BULANAN -->
+      <div class="card stat">
+        <small>Total Pemasukan</small>
+        <h3 id="rekapMasuk">Rp 0</h3>
+      </div>
+
+      <div class="card stat">
+        <small>Total Pengeluaran</small>
+        <h3 id="rekapKeluar">Rp 0</h3>
+      </div>
+
+      <!-- FORM -->
+      <div class="card form">
+        <h3>Tambah Transaksi</h3>
+        <form id="addForm">
+          <input name="kategori" placeholder="Kategori" required />
+          <input name="jumlah" placeholder="Jumlah (angka)" inputmode="numeric" required />
+          <select name="tipe" required>
+            <option value="masuk">Pemasukan</option>
+            <option value="keluar">Pengeluaran</option>
+          </select>
+          <button type="submit" class="btn primary">Tambah</button>
+        </form>
+      </div>
+
+      <!-- CHART -->
+      <div class="card chart-card">
+        <h3>Grafik Arus Keuangan</h3>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <!-- TABLE -->
+      <div class="card table-card">
+        <h3 id="judulRiwayat">Riwayat Transaksi</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Kategori</th>
+              <th>Jumlah</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ================= EDIT MODAL ================= -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>Edit Transaksi</h3>
+      <form id="editForm">
+        <input name="kategori" placeholder="Kategori" required />
+        <input name="jumlah" placeholder="Jumlah" inputmode="numeric" required />
+        <select name="tipe" required>
+          <option value="masuk">Pemasukan</option>
+          <option value="keluar">Pengeluaran</option>
+        </select>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelEdit" class="btn outline">Batal</button>
+          <button type="submit" class="btn primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= APP ================= -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
